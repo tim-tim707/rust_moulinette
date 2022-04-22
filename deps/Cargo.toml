@@ -1,0 +1,10 @@
+[package]
+name = "deps_tp"
+version = "0.1.0"
+edition = "2018"
+
+# Add all your dependencies here
+# TODO: use ntest timeout and [timeout] annotation on tests
+[dependencies]
+structopt = "0.2"
+# ntest = "?"

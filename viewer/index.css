@@ -1,0 +1,44 @@
+* {
+    font-family: 'Roboto Mono';
+    background-color: #3e3e3e;
+}
+
+input[type=file] {
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+input[type=button] {
+    background-color: white;
+    padding: 5px;
+}
+
+testsuites {
+    background-color: #5e5e5e;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+testsuite {
+    background-color: green;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+testsuite[name=compile] {
+    background-color: red;
+}
+testsuite[name=forbidden] {
+    background-color: red;
+}
+
+testcase {
+    background-color: green;
+}
+
+testcase[failure=true] {
+    background-color: red;
+}

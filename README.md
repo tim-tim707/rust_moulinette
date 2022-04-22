@@ -1,13 +1,16 @@
 Automatic tests for Rust using nextest
+
 Generate a junit.xml file for each student to test
 
 Use on single student with directory as tarball located at `/student` with
 `./entry.sh`
 
 and with a list of students with
-`./entry.sh students.txt`
+`./entry.sh NN list_of_students.txt`
 
-In this case, the format of `students.txt` is a single login per line. Students repository will get cloned from EPITA's repository automatically (crash if not possible)
+In this case, `NN` is a two digit practical number and the format of `list_of_students.txt` is a single login per line. Students repository will get cloned from EPITA's repository automatically (crash if not possible)
+Example: `./entry.sh 07 list_of_students.txt`
+
 
 A basic viewer is launched automatically with `firefox viewer/index.html`. You should provide it with the content of `./output` in order to see results. 
 

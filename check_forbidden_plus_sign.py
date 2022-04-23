@@ -2,6 +2,7 @@ import math
 import time
 import sys
 import subprocess as sp
+from pathlib import Path
 from junit_xml import TestCase, TestSuite
 
 # Check forbidden words and output `argv[1]` as xml on error as well as return 1
@@ -9,6 +10,8 @@ from junit_xml import TestCase, TestSuite
 
 # Add all the forbidden keywords you want here
 # You can use regexes or any script that output an xml like this and returns 0 or !0 on error
+
+EXO_PATH = Path(sys.argv[2])
 
 forbidden_keywords = ["+"]
 f = "./"+sys.argv[2]+"src/main.rs"
@@ -24,7 +27,7 @@ with open(f, "r") as my_file:
             break
 
 if found_any != 0:
-    t = TestCase('Forbidden keyword', sys.argv[2].split("/")[1]+'.forbidden')
+    t = TestCase('forbidden', f'{EXO_PATH.name}.forbidden', 0)
     t.add_failure_info(
         message='Use of forbidden keywords: ' + ' '.join(forbidden_keywords))
     ts = TestSuite('forbidden', [t])

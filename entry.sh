@@ -3,12 +3,14 @@
 set -x
 
 test_exercise() {
+    testsuite_name="TP00-tests"
+
     static_check="$3"
-    [ -d "$1" ] && mkdir -p "$1/.cargo" && cp /deps/addition "$1/.cargo/config.toml"
+    [ -d "$1" ] && mkdir -p "$1/.cargo" && cp deps/addition "$1/.cargo/config.toml"
     rm -f "$1/Cargo.lock" || true
-    python3 compilation_check.py "$2"_output.xml "$1"
+    python3 archi_compilation_check.py "$2"_output.xml "$1"
     if [ "$?" -ne 0 ]; then
-        python3 merge_xml.py output.xml "$2"_output.xml
+        python3 merge_xml.py output.xml "$2"_output.xml "$testsuite_name"
         rm "$2"_output.xml
         return 1
     fi
@@ -16,7 +18,7 @@ test_exercise() {
     if [ ! -z "$static_check" ]; then
         python3 "$3" "$2"_output.xml "$1"/
         if [ "$?" -ne 0 ]; then
-            python3 merge_xml.py output.xml "$2"_output.xml
+            python3 merge_xml.py output.xml "$2"_output.xml "$testsuite_name"
             rm "$2"_output.xml
             return 1
         fi
@@ -32,7 +34,7 @@ test_exercise() {
     ./"$1"/run_test.sh
     mv "$1"/output.xml "$2"_output.xml
 
-    python3 merge_xml.py output.xml "$2"_output.xml
+    python3 merge_xml.py output.xml "$2"_output.xml "$testsuite_name"
     rm "$2"_output.xml
 }
 
@@ -44,7 +46,6 @@ if [ ! -z "$1" -a ! -z "$2" ]; then
     ./clone_all.sh "$1" "$2"
     for student in `cat $2`
     do
-        echo "$student"
         dir_to_test="TP""$1"/tp"$1"-"$student"
 
         rm output.xml
@@ -55,7 +56,7 @@ if [ ! -z "$1" -a ! -z "$2" ]; then
         test_exercise "$dir_to_test"/"hello_word" "test_hello_word"
 
         # Create a check_forbidden error, but you can use your own check scripts that return 0 if OK and !0 on error
-        test_exercise "$dir_to_test"/"add_one" "test_add_one" "check_forbidden.py"
+        test_exercise "$dir_to_test"/"add_one" "test_add_one" "check_forbidden_plus_sign.py"
 
         # Create an architecture failure
         test_exercise "$dir_to_test"/"does_not_exist" "test_does_not_exist"

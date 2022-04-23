@@ -14,7 +14,7 @@ fn my_assert_eq<T: PartialEq + Debug>(a: T, b: T) {
 }
 
 #[test]
-fn test_easy() {
+fn easy() {
     // this should not get runned due to forbidden script error
     my_assert_eq(add_one(1), 2);
 }

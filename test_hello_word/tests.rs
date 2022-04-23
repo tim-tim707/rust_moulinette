@@ -14,11 +14,11 @@ fn my_assert_eq<T: PartialEq + Debug>(a: T, b: T) {
 }
 
 #[test]
-fn test_hello_word() {
+fn good() {
     my_assert_eq(hello_word(), "Hello World!".to_string());
 }
 
 #[test]
-fn test_hello_word_failure_case() {
+fn failure_case() {
     my_assert_eq(hello_word(), "This is a failure case".to_string());
 }

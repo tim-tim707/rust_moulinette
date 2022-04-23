@@ -1,0 +1,13 @@
+<testsuites disabled="0" errors="0" failures="2" tests="2" time="0.0">
+	<testsuite disabled="0" errors="0" failures="1" name="TP00-tests" skipped="0" tests="1" time="0">
+		<testcase name="architecture" classname="does_not_exist.architecture">
+			<failure type="failure" message="File architecture invalid, you probably miss-spelled a directory or file name" />
+		</testcase>
+	<testcase name="architecture" classname="add_one.architecture">
+			<failure type="failure" message="File architecture invalid, you probably miss-spelled a directory or file name" />
+		</testcase>
+	<testcase name="architecture" classname="hello_word.architecture">
+			<failure type="failure" message="File architecture invalid, you probably miss-spelled a directory or file name" />
+		</testcase>
+	</testsuite>
+</testsuites>

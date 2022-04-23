@@ -1,0 +1,33 @@
+<testsuites disabled="0" errors="0" failures="2" tests="2" time="0.0">
+	<testsuite disabled="0" errors="0" failures="1" name="TP00-tests" skipped="0" tests="1" time="0">
+		<testcase name="architecture" classname="does_not_exist.architecture">
+			<failure type="failure" message="File architecture invalid, you probably miss-spelled a directory or file name" />
+		</testcase>
+	<testcase name="forbidden" classname="add_one.forbidden">
+			<failure type="failure" message="Use of forbidden keywords: +" />
+		</testcase>
+	<testcase name="good" classname="hello_word::tests.good" timestamp="2022-04-23T13:08:27.792+00:00" time="0.002">
+        </testcase>
+        <testcase name="failure_case" classname="hello_word::tests.failure_case" timestamp="2022-04-23T13:08:27.792+00:00" time="0.002">
+            <failure type="test failure" />
+            <system-out>
+running 1 test
+Expected "Hello World!" got "This is a failure case"
+test failure_case ... FAILED
+
+failures:
+
+failures:
+    failure_case
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+</system-out>
+            <system-err>thread 'failure_case' panicked at 'assertion failed: `(left == right)`
+  left: `"Hello World!"`,
+ right: `"This is a failure case"`', tests/tests.rs:13:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</system-err>
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -14,7 +14,7 @@ fn my_assert_eq<T: PartialEq + Debug>(a: T, b: T) {
 }
 
 #[test]
-fn test_easy() {
+fn easy() {
     // Should not be runned due to Architecture check script failure
     my_assert_eq(does_not_exist(), "Hello There");
 }

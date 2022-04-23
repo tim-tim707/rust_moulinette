@@ -1,6 +1,6 @@
 var XMLParser = new DOMParser();
 
-let student_name = document.getElementById('student name');
+let student_name = document.getElementById('file_name');
 let trace = document.getElementById('trace');
 let dir = null;
 let d = document.getElementById('input').addEventListener('change',
@@ -56,6 +56,7 @@ function trace_text() {
                 const child = testCase.children[j];
                 if (child.tagName == "FAILURE")
                     testCase.setAttribute('failure', 'true');
+                    testCase.setAttribute('name', testCase.getAttribute('classname'));
 
             }
             // const testCaseFailure = testCase.children("FAILURE");
@@ -63,7 +64,7 @@ function trace_text() {
             //     console.log(testCaseFailure);
             //     console.log(testCaseFailure.tagName);
             // }
-            testCase.append(testCase.getAttribute("name"));
+            testCase.append(testCase.getAttribute('name'));
         }
     });
 }

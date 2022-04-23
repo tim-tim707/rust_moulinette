@@ -13,6 +13,10 @@ input[type=button] {
     padding: 5px;
 }
 
+div[id=file_name] {
+    background-color: white;
+}
+
 testsuites {
     background-color: #5e5e5e;
     padding: 10px;
@@ -26,13 +30,6 @@ testsuite {
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-}
-
-testsuite[name=compile] {
-    background-color: red;
-}
-testsuite[name=forbidden] {
-    background-color: red;
 }
 
 testcase {
